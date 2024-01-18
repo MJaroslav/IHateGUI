@@ -1,0 +1,12 @@
+[
+  {
+    "modid": "ihategui",
+    "name": "IHateGUI MC Engine",
+    "description": "MC bindings for IHateGUI library (another GUI framework).",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "authorList": [
+      "MJaroslav"
+    ]
+  }
+]
