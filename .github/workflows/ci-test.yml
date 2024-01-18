@@ -1,27 +1,32 @@
 name: Run gradle tests
 
-on: [push, pull_request]
+on: [ push, pull_request, workflow_dispatch ]
 
 permissions:
   contents: read
+
+concurrency:
+  group: ${{ github.event_name }}-${{ github.ref }}-gradle
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDKs
-      uses: actions/setup-java@v4
-      with:
-        java-version: |
-          16
-          8
-        distribution: 'zulu'
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-    - name: Run all tests headless
-      uses: GabrielBB/xvfb-action@v1
-      with:
-        run: ./gradlew test --info --stacktrace
-      env:
-        MCIGT_HAS_DISPLAY: true
+      - uses: actions/checkout@v3
+      - name: Set up JDKs
+        uses: actions/setup-java@v4
+        with:
+          java-version: |
+            16
+            8
+          distribution: 'zulu'
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      - name: Run all tests headless
+        uses: GabrielBB/xvfb-action@v1
+        with:
+          run: ./gradlew check --info --stacktrace
+        env:
+          MCIGT_HAS_DISPLAY: true
+
