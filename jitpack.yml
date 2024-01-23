@@ -1,8 +1,8 @@
 before_install:
-  sdk install java 16.0.2.fx-zulu
-  sdk install java 8.0.345.fx-zulu
-  sdk use java 8.0.345.fx-zulu
+  - sdk install java 16.0.2.fx-zulu
+  - sdk install java 8.0.345.fx-zulu
+  - sdk use java 8.0.345.fx-zulu
 install:
-  - ./gradlew build publishToMavenLocal --info --stacktrace
+  - ./gradlew publishToMavenLocal --info --stacktrace
 env:
   CI: false
