@@ -2,10 +2,12 @@ plugins {
     `maven-publish`
 }
 
-publishing {
-    publications {
-        val maven by this.creating(MavenPublication::class) {
-            from(components["java"])
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("mavenJava") {
+                from(components["java"])
+            }
         }
     }
 }
