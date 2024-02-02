@@ -5,4 +5,5 @@ object Versions {
     const val JUNIT_JUPITER = "5.10.1"
     const val JUNIT_PLATFORM = "1.10.1"
     const val FORGE_GRADLE = "1.2-1.1.+"
+    const val SHARED_JAVA = "v1.+"
 }

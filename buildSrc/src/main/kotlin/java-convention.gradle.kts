@@ -4,9 +4,15 @@ plugins {
 
 repositories {
     mavenCentral()
+    maven {
+        name = "JitPack"
+        url = uri("https://jitpack.io")
+    }
 }
 
 dependencies {
+    implementation(Dependencies.SHARED_JAVA)
+
     annotationProcessor(Dependencies.JABEL)
     testAnnotationProcessor(Dependencies.JABEL)
 

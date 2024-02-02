@@ -20,13 +20,6 @@ buildscript {
     }
 }
 
-repositories {
-    maven {
-        name = "JitPack"
-        url = uri("https://jitpack.io")
-    }
-}
-
 apply(plugin = "forge")
 apply(from = "https://raw.githubusercontent.com/MJaroslav/MCInGameTester/master/gradle/configurations/v1.gradle")
 
